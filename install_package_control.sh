@@ -49,6 +49,10 @@ fi
 
 
 # launch sublime text in background
+if [ $(uname) != 'Darwin'  ]; then
+    [ -z "$DISPLAY" ] && export DISPLAY=:99.0
+    sh -e /etc/init.d/xvfb start || echo "xvfb is running"
+fi
 subl &
 
 ENDTIME=$(( $(date +%s) + 60 ))

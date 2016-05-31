@@ -71,6 +71,8 @@ else
         tar jxfv ~/Downloads/sublimetext.tar.bz2 -C ~/Downloads/
         sudo ln -sf "$HOME/Downloads/$SUBLIME_TEXT/sublime_text" /usr/bin/subl
         # make `subl` available
+        [ -z "$DISPLAY" ] && export DISPLAY=:99.0
+        sh -e /etc/init.d/xvfb start || echo "xvfb is running"
         "$HOME/Downloads/$SUBLIME_TEXT/sublime_text" &
         sleep 2
         killall sublime_text
