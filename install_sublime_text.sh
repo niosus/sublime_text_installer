@@ -33,6 +33,7 @@ if [ $(uname) = 'Darwin'  ]; then
         fi
         echo "installing sublime text $SUBLIME_TEXT_VERSION"
         URL=$(curl -s "$STWEB" | sed -n 's/.*href="\([^"]*\.dmg\)".*/\1/p')
+        echo "url is: $URL"
         if [ -z "$URL" ]; then
             echo "could not download Sublime Text binary"
             exit 1
